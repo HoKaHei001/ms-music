@@ -1,0 +1,1 @@
+{"mappings":"AAAA;;;;;;;AAOA;;;;AAIA","sources":["css/album.css"],"sourcesContent":["#songs-wrapper {\n    width: 20%;\n    position: fixed;\n    top: 0;\n    right: 0;\n}\n\n#songs-wrapper li {\n    margin: 30px 0;\n}\n\n.song-name {\n    cursor: pointer;\n}"],"names":[],"version":3,"file":"album.af3fc8cf.css.map","sourceRoot":"/__parcel_source_root/"}

@@ -1,0 +1,209 @@
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.site-title {
+    width: 100%;
+    height: 5vh;
+    padding-top: 20px;
+    text-align: center;
+    position: relative;
+    color: #333333;
+}
+
+
+
+/* .site-title::after {
+    content: "";
+    display: block;
+    width: 150px;
+    height: 4px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #333333;
+    border-radius: 10px;
+} */
+
+.edit-title {
+    text-align: center;
+    position: relative;
+    margin-bottom: 40px;
+    color: rgb(69, 187, 255);
+}
+
+.edit-title::after {
+    content: "";
+    display: block;
+    width: 10%;
+    height: 4px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: rgb(69, 187, 255);
+    border-radius: 10px;
+}
+
+
+
+
+
+.btn {
+    margin: auto;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    width: 250px;
+    cursor: pointer;
+}
+
+/* 
+========================
+      BUTTON ONE
+========================
+*/
+.btn-one {
+    margin-top: 40px;
+    color: #FFF;
+    transition: all 0.3s;
+    position: relative;
+    background-color: #f4f4f4;
+}
+
+.btn-one a {
+    height: 100%;
+    color: black;
+    text-decoration: none;
+    transition: all 0.3s;
+    position: relative;
+    top: 0;
+    z-index: 99;
+    display: block;
+}
+
+.btn-one::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-color: rgb(69, 187, 255);
+    border-bottom-color: rgb(69, 187, 255);
+    transform: scale(0.1, 1);
+}
+
+.btn-one:hover a {
+    letter-spacing: 2px;
+    color: rgb(69, 187, 255);
+}
+
+.btn-one:hover::before {
+    opacity: 1;
+    transform: scale(1, 1);
+}
+
+.btn-one::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.3s;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-one:hover::after {
+    opacity: 0;
+    transform: scale(0.1, 1);
+}
+
+.btn-one:hover {
+    background-color: #FFF;
+}
+
+
+
+.btn-one button {
+    width: 100%;
+    height: 100%;
+    color: black;
+    transition: all 0.3s;
+    position: relative;
+    z-index: 99;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.btn-one:hover button {
+    letter-spacing: 2px;
+    color: rgb(69, 187, 255);
+}
+
+.new-wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.button-area {
+    width: 100%;
+}
+
+.form-wrapper {
+    width: 40%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.new-wrapper label {
+    color: rgb(69, 187, 255);
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.new-wrapper input,
+.new-wrapper textarea {
+    border: 1px solid rgb(78, 187, 250);
+    border-radius: 5px;
+    resize: none;
+}
+
+#albums {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    /* align-items: center; */
+    width: 100%;
+    height: 95vh;
+    padding-left: 80px;
+    padding-top: 50px;
+    overflow-x: scroll;
+}
+
+#albums li {
+    margin: 0 50px 50px 0;
+    width: 315px;
+    transition: 0.3s;
+}
+
+#albums li:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+}

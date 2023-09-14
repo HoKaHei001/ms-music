@@ -1,0 +1,16 @@
+#songs-wrapper {
+  width: 20%;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+#songs-wrapper li {
+  margin: 30px 0;
+}
+
+.song-name {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=album.af3fc8cf.css.map */

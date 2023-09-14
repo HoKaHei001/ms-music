@@ -1,0 +1,229 @@
+.audioplayer {
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #dde2e6;
+  border-radius: 4px;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 96px;
+  margin: 1em 0;
+  padding: 0 24px;
+  display: flex;
+}
+
+.audioplayer-playpause {
+  cursor: pointer;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  transition: all .2s ease-in-out;
+  display: flex;
+}
+
+.audioplayer:not(.audioplayer-playing) .audioplayer-playpause {
+  background: #5b82ff00;
+  border: 1px solid #5b82ff;
+}
+
+.audioplayer:not(.audioplayer-playing) .audioplayer-playpause:hover {
+  background: #5b82ff1a;
+}
+
+.audioplayer-playing .audioplayer-playpause {
+  background: #fd4f1a00;
+  border: 1px solid #fd4f1a;
+}
+
+.audioplayer-playing .audioplayer-playpause:hover {
+  background: #eb4f1a1a;
+}
+
+.audioplayer:not(.audioplayer-playing) .audioplayer-playpause a {
+  content: "";
+  border: 7px solid #0000;
+  border-left: 12px solid #0059ff;
+  border-right: none;
+  justify-content: center;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+}
+
+.audioplayer-playing .audioplayer-playpause a {
+  content: "";
+  justify-content: space-between;
+  width: 12px;
+  height: 14px;
+  display: flex;
+}
+
+.audioplayer-playing .audioplayer-playpause a:before, .audioplayer-playing .audioplayer-playpause a:after {
+  content: "";
+  background-color: #fd4f1a;
+  width: 4px;
+  height: 14px;
+}
+
+.audioplayer-time {
+  color: #3339;
+  justify-content: center;
+  width: 40px;
+  font-size: 12px;
+  display: flex;
+}
+
+.audioplayer-time-current {
+  margin-left: 24px;
+}
+
+.audioplayer-time-duration {
+  margin-right: 24px;
+}
+
+.audioplayer-bar {
+  cursor: pointer;
+  flex-grow: 1;
+  flex-basis: 0;
+  height: 12px;
+  margin: 0 12px;
+  display: flex;
+  position: relative;
+}
+
+.audioplayer-bar:before {
+  content: "";
+  background-color: #dde2e6;
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  top: 5px;
+}
+
+.audioplayer-bar > div {
+  position: absolute;
+  top: 5px;
+  left: 0;
+}
+
+.audioplayer-bar-loaded {
+  z-index: 1;
+  background: #bec8d2;
+  height: 2px;
+}
+
+.audioplayer-bar-played {
+  z-index: 2;
+  background: -webkit-linear-gradient(left, #0059ff, #09b1fa);
+  flex-direction: row-reverse;
+  height: 2px;
+}
+
+.audioplayer-bar-played:after {
+  content: "";
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 6px;
+  width: 12px;
+  height: 12px;
+  margin-right: -5px;
+  display: flex;
+  position: absolute;
+  top: -5px;
+  right: -1px;
+}
+
+.audioplayer:not(.audioplayer-playing) .audioplayer-bar-played:after {
+  border: 2px solid #bec8d2;
+}
+
+.audioplayer-playing .audioplayer-bar-played:after {
+  border: 2px solid #0059ff;
+}
+
+.audioplayer-volume {
+  align-items: center;
+  display: flex;
+}
+
+.audioplayer-volume-button {
+  cursor: pointer;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  display: flex;
+}
+
+.audioplayer-volume-button a {
+  background-color: #9a9fb0;
+  width: 6px;
+  height: 8px;
+  display: flex;
+  position: relative;
+}
+
+.audioplayer-volume-button a:before, .audioplayer-volume-button a:after {
+  content: "";
+  position: absolute;
+}
+
+.audioplayer-volume-button a:before {
+  border: 8px solid #0000;
+  border-left: none;
+  border-right: 9px solid #9a9fb0;
+  width: 0;
+  height: 0;
+  top: -4px;
+}
+
+.audioplayer:not(.audioplayer-mute) .audioplayer-volume-button a:after {
+  border: 6px double #9a9fb0;
+  border-width: 6px 6px 0 0;
+  border-radius: 0 12px 0 0;
+  width: 6px;
+  height: 6px;
+  top: -2px;
+  left: 10px;
+  transform: rotate(45deg);
+}
+
+.audioplayer-mute .audioplayer-volume-button a {
+  background-color: #fd4f1a;
+}
+
+.audioplayer-mute .audioplayer-volume-button a:before {
+  border-right: 9px solid #fd4f1a;
+}
+
+.audioplayer-volume-adjust {
+  align-items: center;
+  margin-left: 8px;
+  display: flex;
+}
+
+.audioplayer-volume-adjust > div {
+  cursor: pointer;
+  background-color: #bec8d2;
+  width: 60px;
+  height: 2px;
+  display: flex;
+  position: relative;
+}
+
+.audioplayer-volume-adjust div div {
+  background-color: #0059ff;
+  height: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (width <= 679px) {
+  .audioplayer-volume-adjust {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=album.02d4c677.css.map */
