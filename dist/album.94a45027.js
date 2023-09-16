@@ -579,6 +579,7 @@ var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 const prams = new URLSearchParams(location.search);
 const playerList = [];
+const playerObj = document.querySelector("#player");
 // console.log(prams.get("id"));
 (0, _axiosDefault.default).get(`https://monster-siren.hypergryph.com/api/album/${prams.get("id")}/detail`).then((response)=>{
     const ul = document.getElementById("album-wrapper");
@@ -642,11 +643,17 @@ const playerList = [];
             const template = document.getElementById("songs-content");
             // li要素をコピーする
             const li = template.content.cloneNode(true);
+            function onloadPlay() {
+                if (playerObj.src == "") {
+                    console.log("test");
+                    playerObj.src = playerList[0]["sourceUrl"];
+                }
+            }
+            onloadPlay();
             // 中身を設定
             li.querySelector("label").textContent = sName;
             // li.querySelector('audio').src = sSourceUrl;
             li.querySelector("label").addEventListener("click", ()=>{
-                console.log("test");
                 for(num = 0; num < playerList.length; num++)if (playerList[num]["cid"] == sId) {
                     playerObj.src = playerList[num]["sourceUrl"];
                     console.log("1");
@@ -656,23 +663,32 @@ const playerList = [];
                     console.log("2");
                 }
             });
+            // playerObj.addEventListener("ended", () => {
+            //     for (num = 0; num < playerList.length; num++) {
+            //         if (playerList[num]["cid"] == sId) {
+            //             console.log("3");
+            //             playerObj.src = playerList[num + 1]["sourceUrl"];
+            //         }
+            //         else if (playerList[playerList.length - 1]["cid"] == sId) {
+            //             console.log("4");
+            //             playerObj.src = "";
+            //         }
+            //     }
+            // })
+            playerObj.addEventListener("ended", ()=>{
+                playerList.forEach((element)=>{
+                    if (playerList[row]["cid"] == sId) {
+                        console.log("3");
+                        playerObj.src = playerList[num + 1]["sourceUrl"];
+                    }
+                });
+            });
             // ul要素にli要素を追加
             ul.appendChild(li);
         });
     });
 });
 console.log(playerList);
-sessionStorage.setItem("obj", JSON.stringify(playerList));
-const playerObj = document.querySelector("#player"); // document.querySelector("label").addEventListener('click', function () {
- //     const nowPlay = this.value;
- //     for (num = 0; num < playerList.length; num++) {
- //         if (playerList[num]["name"] == nowPlay) {
- //             playerObj.src = playerList[num]["sourceUrl"]
- //         } else {
- //             playerObj.src = "";
- //         }
- //     }
- // })
 
 },{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["87j00","dGSFl"], "dGSFl", "parcelRequiref97b")
 

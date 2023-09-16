@@ -2,6 +2,8 @@ import axios from "axios";
 
 const prams = new URLSearchParams(location.search);
 const playerList = [];
+const playerObj = document.querySelector("#player");
+
 // console.log(prams.get("id"));
 
 
@@ -97,14 +99,22 @@ axios.get(`https://monster-siren.hypergryph.com/api/album/${prams.get("id")}/det
                     // li要素をコピーする
                     const li = template.content.cloneNode(true);
 
+                    function onloadPlay() {
+                        if (playerObj.src == "") {
+                            console.log("test");
+                            playerObj.src = playerList[0]["sourceUrl"]
+                        }
+                    }
+
+                    onloadPlay();
+
                     // 中身を設定
                     li.querySelector('label').textContent = sName;
                     // li.querySelector('audio').src = sSourceUrl;
                     li.querySelector("label").addEventListener("click", () => {
-                        console.log("test");
                         for (num = 0; num < playerList.length; num++) {
                             if (playerList[num]["cid"] == sId) {
-                                playerObj.src = playerList[num]["sourceUrl"]
+                                playerObj.src = playerList[num]["sourceUrl"];
                                 console.log("1");
                                 break;
                             } else {
@@ -112,6 +122,28 @@ axios.get(`https://monster-siren.hypergryph.com/api/album/${prams.get("id")}/det
                                 console.log("2");
                             }
                         }
+                    })
+
+                    // playerObj.addEventListener("ended", () => {
+                    //     for (num = 0; num < playerList.length; num++) {
+                    //         if (playerList[num]["cid"] == sId) {
+                    //             console.log("3");
+                    //             playerObj.src = playerList[num + 1]["sourceUrl"];
+                    //         }
+                    //         else if (playerList[playerList.length - 1]["cid"] == sId) {
+                    //             console.log("4");
+                    //             playerObj.src = "";
+                    //         }
+                    //     }
+                    // })
+
+                    playerObj.addEventListener("ended", () => {
+                        playerList.forEach(element => {
+                            if (playerList[row]["cid"] == sId) {
+                                console.log("3");
+                                playerObj.src = playerList[num + 1]["sourceUrl"];
+                            }
+                        });
                     })
 
 
@@ -126,24 +158,5 @@ axios.get(`https://monster-siren.hypergryph.com/api/album/${prams.get("id")}/det
     }
     )
 
-
-
 console.log(playerList);
-
-sessionStorage.setItem('obj', JSON.stringify(playerList));
-
-const playerObj = document.querySelector("#player");
-
-
-
-// document.querySelector("label").addEventListener('click', function () {
-//     const nowPlay = this.value;
-//     for (num = 0; num < playerList.length; num++) {
-//         if (playerList[num]["name"] == nowPlay) {
-//             playerObj.src = playerList[num]["sourceUrl"]
-//         } else {
-//             playerObj.src = "";
-//         }
-//     }
-// })
 
