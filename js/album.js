@@ -138,12 +138,14 @@ axios.get(`https://monster-siren.hypergryph.com/api/album/${prams.get("id")}/det
                     // })
 
                     playerObj.addEventListener("ended", () => {
-                        playerList.forEach(element => {
-                            if (playerList[row]["cid"] == sId) {
+                        for (num = 0; num < playerList.length; num++) {
+                            if (playerList[num]["sourceUrl"] == playerObj.src) {
                                 console.log("3");
+                                console.log(playerObj.src);
                                 playerObj.src = playerList[num + 1]["sourceUrl"];
+                                break;
                             }
-                        });
+                        }
                     })
 
 
