@@ -676,12 +676,12 @@ const playerObj = document.querySelector("#player");
             //     }
             // })
             playerObj.addEventListener("ended", ()=>{
-                playerList.forEach((element)=>{
-                    if (playerList[row]["cid"] == sId) {
-                        console.log("3");
-                        playerObj.src = playerList[num + 1]["sourceUrl"];
-                    }
-                });
+                for(num = 0; num < playerList.length; num++)if (playerList[num]["sourceUrl"] == playerObj.src) {
+                    console.log("3");
+                    console.log(playerObj.src);
+                    playerObj.src = playerList[num + 1]["sourceUrl"];
+                    break;
+                }
             });
             // ul要素にli要素を追加
             ul.appendChild(li);
