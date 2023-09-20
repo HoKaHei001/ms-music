@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>詳細ページ</title>
+    <title></title>
 
     <link rel="stylesheet" href="/index.9bfebdba.css">
     <link rel="stylesheet" href="/index.b2625c6b.css">
     <link rel="stylesheet" href="/album.af3fc8cf.css">
     <link rel="stylesheet" href="/album.02d4c677.css">
-    <script src="/album.6e3e0f53.js"></script><script src="/album.94a45027.js" defer=""></script>
+    <script src="/album.af06f3b9.js"></script><script src="/album.94a45027.js" defer=""></script>
 
 </head>
 
@@ -21,7 +21,9 @@
                 <ul id="album-info">
 
                 </ul>
-                <audio id="player" controls="" autoplay=""></audio>
+                <div class="player-wrapper">
+                    <audio id="player" controls="" autoplay=""></audio>
+                </div>
 
             </div>
 
@@ -33,9 +35,12 @@
 
             <template id="album-content">
                 <li>
-                    <img class="album-img" alt="">
+                    <div class="album-img-wrapper">
+                        <img class="album-img" alt="">
+                    </div>
                     <div>
                         <h2 class="album-name"></h2>
+                        <h4 class="album-artusts"></h4>
                         <small class="album-intro"></small>
                     </div>
                 </li>
@@ -52,7 +57,7 @@
         </div>
         <div class="btn btn-one">
             <a href="/index.html">
-                トップに戻る
+                Back To Top
             </a>
         </div>
     </div>

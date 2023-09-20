@@ -595,23 +595,6 @@ const playerObj = document.querySelector("#player");
     cSongs.forEach((element)=>{
         sSongsId.push(element["cid"]);
     });
-    // const asyncFunc = async () => {
-    //     try {
-    //         const res = await axios.get(`https://monster-siren.hypergryph.com/api/song/${sSongsId}`, {
-    //         })
-    //         const items = res.data;
-    //         for (const item of items) {
-    //             console.log(item);
-    //         }
-    //     } catch (error) {
-    //         const {
-    //             status,
-    //             statusText
-    //         } = error.response;
-    //         console.log(`Error! HTTP Status: ${status} ${statusText}`);
-    //     }
-    // }
-    // asyncFunc();
     site_title.textContent = cName;
     //template要素の取得
     const template = document.getElementById("album-content");
@@ -620,6 +603,7 @@ const playerObj = document.querySelector("#player");
     // 中身を設定
     li.querySelector(".album-img").src = `./images/${cId}.jpg`;
     li.querySelector("h2").textContent = cName;
+    li.querySelector("h4").textContent = cSongs[0].artistes;
     li.querySelector("small").textContent = cIntro;
     // ul要素にli要素を追加
     ul.appendChild(li);
@@ -638,34 +622,15 @@ const playerObj = document.querySelector("#player");
             const slyricUrl = item.lyricUrl;
             const sSourceUrl = item.sourceUrl;
             playerList.push(response.data.data);
-            // console.log(sName, sId, sArtists, smvCoverUrl, smvUrl, slyricUrl, sSourceUrl);
             //template要素の取得
             const template = document.getElementById("songs-content");
             // li要素をコピーする
             const li = template.content.cloneNode(true);
             function onloadPlay() {
-                if (playerObj.src == "") {
-                    console.log("test");
-                    playerObj.src = playerList[0]["sourceUrl"];
-                }
+                if (playerObj.src == "") playerObj.src = playerList[0]["sourceUrl"];
             }
-            onloadPlay();
+            // onloadPlay();
             // 中身を設定
-            // li.querySelector('label').textContent = sName;
-            // // li.querySelector('audio').src = sSourceUrl;
-            // li.querySelector("label").addEventListener("click", () => {
-            //     for (num = 0; num < playerList.length; num++) {
-            //         if (playerList[num]["cid"] == sId) {
-            //             playerObj.src = playerList[num]["sourceUrl"];
-            //             console.log("1");
-            //             break;
-            //         } else {
-            //             playerObj.src = "";
-            //             console.log("2");
-            //         }
-            //     }
-            // })
-            // li.querySelector('.song-name').value = sName;
             li.querySelector("label").textContent = sName;
             li.querySelector(".song-name").id = sName;
             li.querySelector("label").htmlFor = sName;
@@ -675,21 +640,8 @@ const playerObj = document.querySelector("#player");
                     break;
                 } else playerObj.src = "";
             });
-            // playerObj.addEventListener("ended", () => {
-            //     for (num = 0; num < playerList.length; num++) {
-            //         if (playerList[num]["cid"] == sId) {
-            //             console.log("3");
-            //             playerObj.src = playerList[num + 1]["sourceUrl"];
-            //         }
-            //         else if (playerList[playerList.length - 1]["cid"] == sId) {
-            //             console.log("4");
-            //             playerObj.src = "";
-            //         }
-            //     }
-            // })
             playerObj.addEventListener("ended", ()=>{
                 for(num = 0; num < playerList.length; num++)if (playerList[num]["sourceUrl"] == playerObj.src) {
-                    console.log("3");
                     console.log(playerObj.src);
                     playerObj.src = playerList[num + 1]["sourceUrl"];
                     break;
@@ -700,7 +652,6 @@ const playerObj = document.querySelector("#player");
         });
     });
 });
-console.log(playerList);
 
 },{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["87j00","dGSFl"], "dGSFl", "parcelRequiref97b")
 
