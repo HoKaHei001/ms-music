@@ -15,36 +15,46 @@
 </head>
 
 <body>
-    <div class="ablum-item-wrapper">
-        <ul id="album-wrapper">
+    <div class="ablum-area">
+        <div class="ablum-item-wrapper">
+            <div class="album-wrapper">
+                <ul id="album-info">
 
-        </ul>
+                </ul>
+                <audio id="player" controls autoplay></audio>
 
-        <ul id="songs-wrapper"></ul>
-        <audio id="player" controls autoplay></audio>
+            </div>
 
 
-        <template id="album-content">
-            <li>
-                <img class="album-img" alt="">
-                <h2 class="album-name"></h2>
-                <small class="album-intro"></small>
-            </li>
-        </template>
+            <ul id="songs-wrapper">
+                <h3>PLAYLIST</h3>
+            </ul>
 
-        <template id="songs-content">
-            <li>
-                <label class="song-name"></label></br>
-                <!-- <audio class="song-source" controls></audio> -->
-            </li>
-        </template>
 
+            <template id="album-content">
+                <li>
+                    <img class="album-img" alt="">
+                    <div>
+                        <h2 class="album-name"></h2>
+                        <small class="album-intro"></small>
+                    </div>
+                </li>
+            </template>
+
+            <template id="songs-content">
+                <li>
+                    <input type="radio" name="song-name" value="" class="song-name">
+                    <label for=""></label>
+                </li>
+            </template>
+
+
+        </div>
         <div class="btn btn-one">
             <a href="./index.html">
                 トップに戻る
             </a>
         </div>
-
     </div>
 
 

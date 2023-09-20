@@ -10,7 +10,7 @@ const playerObj = document.querySelector("#player");
 axios.get(`https://monster-siren.hypergryph.com/api/album/${prams.get("id")}/detail`)
     .then((response) => {
 
-        const ul = document.getElementById('album-wrapper')
+        const ul = document.getElementById('album-info')
         const site_title = document.querySelector('title');
 
 
@@ -109,20 +109,38 @@ axios.get(`https://monster-siren.hypergryph.com/api/album/${prams.get("id")}/det
                     onloadPlay();
 
                     // 中身を設定
+                    // li.querySelector('label').textContent = sName;
+                    // // li.querySelector('audio').src = sSourceUrl;
+                    // li.querySelector("label").addEventListener("click", () => {
+                    //     for (num = 0; num < playerList.length; num++) {
+                    //         if (playerList[num]["cid"] == sId) {
+                    //             playerObj.src = playerList[num]["sourceUrl"];
+                    //             console.log("1");
+                    //             break;
+                    //         } else {
+                    //             playerObj.src = "";
+                    //             console.log("2");
+                    //         }
+                    //     }
+                    // })
+
+                    // li.querySelector('.song-name').value = sName;
+
                     li.querySelector('label').textContent = sName;
-                    // li.querySelector('audio').src = sSourceUrl;
-                    li.querySelector("label").addEventListener("click", () => {
+                    li.querySelector('.song-name').id = sName;
+
+                    li.querySelector('label').htmlFor = sName;
+                    li.querySelector("label").addEventListener("click", (e) => {
                         for (num = 0; num < playerList.length; num++) {
                             if (playerList[num]["cid"] == sId) {
                                 playerObj.src = playerList[num]["sourceUrl"];
-                                console.log("1");
                                 break;
                             } else {
                                 playerObj.src = "";
-                                console.log("2");
                             }
                         }
                     })
+
 
                     // playerObj.addEventListener("ended", () => {
                     //     for (num = 0; num < playerList.length; num++) {
