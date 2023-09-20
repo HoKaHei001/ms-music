@@ -8,7 +8,7 @@
     <title>MonsterSiren - A WORLD FAMILIARLY UNKNOWN</title>
     <link rel="stylesheet" href="/index.9bfebdba.css">
     <link rel="stylesheet" href="/index.b2625c6b.css">
-    <script src="/album.af06f3b9.js"></script><script src="/index.fbb3188c.js" defer=""></script>
+    <script src="/album.750b3953.js"></script><script src="/index.fbb3188c.js" defer=""></script>
 
 </head>
 
@@ -34,6 +34,24 @@
 
 
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>$(function() {
+    $.fn.mycus_hScroll = function(amount) {
+        amount = amount || 120;
+        $(this).bind("DOMMouseScroll mousewheel", function(event) {
+            var oEvent = event.originalEvent, direction = oEvent.detail ? oEvent.detail * -amount : oEvent.wheelDelta, position = $(this).scrollLeft();
+            position += direction > 0 ? -amount : amount;
+            $(this).scrollLeft(position);
+            event.preventDefault();
+        });
+    };
+});
+$(function() {
+    $("#albums").mycus_hScroll(100); // スクロール量を調節
+});
+
+</script>
 </body>
 
 </html>

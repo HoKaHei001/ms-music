@@ -44,10 +44,11 @@ audio {
   background: linear-gradient(#ffffff18, #fff0);
   width: 20%;
   height: 100vh;
-  padding: 10% 20px 0;
+  padding: 2% 20px;
   position: fixed;
   top: 0;
   right: 0;
+  overflow-y: auto;
 }
 
 #songs-wrapper li {

@@ -50,7 +50,8 @@ audio {
 }
 
 #songs-wrapper {
-    padding: 10% 20px 0 20px;
+    padding: 2% 20px 2% 20px;
+    overflow-y: auto;
 }
 
 #songs-wrapper li {
