@@ -634,7 +634,7 @@ const playerObj = document.querySelector("#player");
             li.querySelector("label").textContent = sName;
             li.querySelector(".song-name").id = sName;
             li.querySelector("label").htmlFor = sName;
-            li.querySelector("label").addEventListener("click", (e)=>{
+            li.querySelector(".song-name,label").addEventListener("click", (e)=>{
                 for(num = 0; num < playerList.length; num++)if (playerList[num]["cid"] == sId) {
                     playerObj.src = playerList[num]["sourceUrl"];
                     break;

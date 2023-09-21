@@ -1,11 +1,11 @@
 body {
   color: #fff;
-  background-image: url("bg.713412d6.png");
+  background-image: url("images/bg.png");
 }
 
 a {
   color: #fff;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   text-decoration: none;
 }
@@ -16,12 +16,24 @@ ul {
 }
 
 .site-title {
-  text-align: center;
   color: #fff;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 5vh;
-  padding-top: 20px;
+  height: 10vh;
+  display: flex;
   position: relative;
+}
+
+.site-logo {
+  opacity: .8;
+  width: 15%;
+  margin: auto;
+  padding-top: 10px;
+}
+
+.site-logo img {
+  width: 100%;
 }
 
 .btn {
@@ -151,7 +163,7 @@ ul {
 #albums {
   flex-flow: column wrap;
   width: 100%;
-  height: 95vh;
+  height: 90vh;
   padding-top: 50px;
   padding-left: 80px;
   display: flex;
@@ -159,7 +171,7 @@ ul {
 }
 
 #albums li {
-  width: 315px;
+  width: 250px;
   margin: 0 50px 50px 0;
   transition: all .3s;
 }
