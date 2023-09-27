@@ -607,14 +607,15 @@ const playerObj = document.querySelector("#player");
     li.querySelector("small").textContent = cIntro;
     // ul要素にli要素を追加
     ul.appendChild(li);
-    cSongs.forEach((element)=>{
-        // console.log(element);
-        (0, _axiosDefault.default).get(`https://monster-siren.hypergryph.com/api/song/${element.cid}`).then((response)=>{
+    (async function() {
+        for (const element of cSongs){
+            const response = await (0, _axiosDefault.default).get(`https://monster-siren.hypergryph.com/api/song/${element.cid}`);
             // console.log(response.data);
             const ul = document.getElementById("songs-wrapper");
             const item = response.data.data;
             // タイトルを取得
             const sName = item.name;
+            console.log(sName);
             const sId = item.cid;
             const sArtists = item.artists;
             const smvCoverUrl = item.mvCoverUrl;
@@ -649,8 +650,8 @@ const playerObj = document.querySelector("#player");
             });
             // ul要素にli要素を追加
             ul.appendChild(li);
-        });
-    });
+        }
+    })();
 });
 
 },{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["87j00","dGSFl"], "dGSFl", "parcelRequiref97b")
