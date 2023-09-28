@@ -15,7 +15,7 @@
 
 .ablum-item-wrapper h3 {
     text-align: center;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
 }
 
 .album-img-wrapper {
@@ -50,12 +50,33 @@ audio {
 }
 
 #songs-wrapper {
-    padding: 2% 20px 2% 20px;
+    padding: 2% 10px 2% 10px;
     overflow-y: auto;
 }
 
 #songs-wrapper li {
-    margin: 0 0 10px 0;
+    /* cursor: pointer; */
+    transition: 0.2s;
+}
+
+#songs-wrapper li input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked~label {
+    background-color: #e0e0e04a;
+}
+
+
+#songs-wrapper li label {
+    padding: 10px;
+    display: block;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#songs-wrapper li:hover {
+    background-color: #e0e0e01b;
 }
 
 .song-name {

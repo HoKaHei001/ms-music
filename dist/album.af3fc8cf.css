@@ -15,7 +15,7 @@
 
 .ablum-item-wrapper h3 {
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 
 .album-img-wrapper {
@@ -44,7 +44,7 @@ audio {
   background: linear-gradient(#ffffff18, #fff0);
   width: 20%;
   height: 100vh;
-  padding: 2% 20px;
+  padding: 2% 10px;
   position: fixed;
   top: 0;
   right: 0;
@@ -52,7 +52,26 @@ audio {
 }
 
 #songs-wrapper li {
-  margin: 0 0 10px;
+  transition: all .2s;
+}
+
+#songs-wrapper li input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]:checked ~ label {
+  background-color: #e0e0e04a;
+}
+
+#songs-wrapper li label {
+  cursor: pointer;
+  padding: 10px;
+  transition: all .2s;
+  display: block;
+}
+
+#songs-wrapper li:hover {
+  background-color: #e0e0e01b;
 }
 
 .song-name {

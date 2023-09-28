@@ -580,6 +580,7 @@ var _axiosDefault = parcelHelpers.interopDefault(_axios);
 const prams = new URLSearchParams(location.search);
 const playerList = [];
 const playerObj = document.querySelector("#player");
+playerObj.volume = 0.5;
 // console.log(prams.get("id"));
 (0, _axiosDefault.default).get(`https://monster-siren.hypergryph.com/api/album/${prams.get("id")}/detail`).then((response)=>{
     const ul = document.getElementById("album-info");
@@ -615,7 +616,6 @@ const playerObj = document.querySelector("#player");
             const item = response.data.data;
             // タイトルを取得
             const sName = item.name;
-            console.log(sName);
             const sId = item.cid;
             const sArtists = item.artists;
             const smvCoverUrl = item.mvCoverUrl;
@@ -641,13 +641,15 @@ const playerObj = document.querySelector("#player");
                     break;
                 } else playerObj.src = "";
             });
-            playerObj.addEventListener("ended", ()=>{
-                for(num = 0; num < playerList.length; num++)if (playerList[num]["sourceUrl"] == playerObj.src) {
-                    console.log(playerObj.src);
-                    playerObj.src = playerList[num + 1]["sourceUrl"];
-                    break;
-                }
-            });
+            // playerObj.addEventListener("ended", () => {
+            //     for (num = 0; num < playerList.length; num++) {
+            //         if (playerList[num]["sourceUrl"] == playerObj.src) {
+            //             console.log(playerObj.src);
+            //             playerObj.src = playerList[num + 1]["sourceUrl"];
+            //         }
+            //         break;
+            //     }
+            // })
             // ul要素にli要素を追加
             ul.appendChild(li);
         }
